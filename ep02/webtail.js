@@ -21,6 +21,8 @@ http.createServer(function(request, response) {
   
   // child process writes system log to stdout, keeps updating in 
   // real-time each time a new log entry is made. don't understand this
+  // from his next episode it attaches a listener to the stdout of this
+  // process to capture data events
   tail_child.stdout.on('data', function(data) {
     console.log(data.toString());
     response.write(data);
